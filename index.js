@@ -1,82 +1,96 @@
-// Install and import necessary files
-
-const inquirer = require("inquirer");
+// TODO: Include packages needed for this application
 const fs = require("fs");
-const generateMarkdown = require('generateMarkdown()');
+const inquirer = require("inquirer")
+const generateMarkdown = require('./utils/generateMarkdown')
+// console.log(generateMarkdown)
 
-// Prompt
-
-inquirer
-  .prompt([
-    {
-      type: 'input',
-      message: 'What would you like your repository title to be?',
-      name: 'title',
-    },
-    {
-      type: 'input',
-      message: 'What would you like your project name to be?',
-      name: 'name',
-    },
-    {
-      type: 'list',
+// TODO: Create an array of questions for user input
+const questions = [
+  {
+    type: "input",
+    message: "What is the title of your README",
+    name: "title",
+  },
+  {
+    type: "input",
+    message: "What is the description of your README",
+    name: "description",
+  },
+  {
+    type: "input",
+    message: "Please enter installation instructions",
+    name: "installation",
+  }, 
+  {
+    type: "input",
+    message: "Please enter how to use the application",
+    name: "usage",
+  }, 
+  {
+    type: "input",
+    message: "Please enter any contributions guidelines",
+    name: "contribution",
+  }, 
+  {
+    type: "input",
+    message: "Please enter any test instructions",
+    name: "test",
+  }, 
+  {
+    type: 'list',
       message: 'Choose your license for your project.',
       name: 'license',
       choices: [
-          { value: 'Apache' },   
-          { value: 'BSD3' },  
-          { value: 'LGPL' },  
-          { value: 'MIT' },  
-          { value: 'MPL' }, 
-          { value: 'None' }, 
+          { value: 'Apache 2.0' },   
+          { value: 'GNU General Public License v3.0' },  
+          { value: 'MIT License' },  
+          { value: 'BSD 2' },  
+          { value: 'BSD 3' }, 
+          { value: 'Boost Software License 1.0' }, 
+          { value: 'Creative Commons Zero' }, 
+          { value: 'Eclipse Public License 2.0' }, 
+          { value: 'GNU Aferro General Public License v3.0' }, 
+          { value: 'GNU General Public License v2.0' }, 
+          { value: 'GNU General Public License v2.1' }, 
+          { value: 'Mozilla Public License 2.0' }, 
+          { value: 'The Unlicensed' },           
       ]
-    },
-    {
-      type: 'input',
-      message: 'Provide a description of your application:',
-      name: 'description',
-    },
-    {
-        type: 'input',
-        message: 'What are the steps required to install your project? Provide a step-by-step description of how to get the devlopment environment running.',
-        name: 'install',
-    },
-    {
-        type: 'input',
-        message: 'Provide instructions and examples for use. Include screenshots as needed.',
-        name: 'usage',
-    },
-    {
-      type: 'input',
-      message: 'How would you test this project?',
-      name: 'test',
-    },       
-    {
-        type: 'input',
-        message: 'List your collaborates',
-        name: 'credits',
-    },
-    {
-        type: 'input',
-        message: 'Enter your GitHub username:',
-        name: 'github',
-    },
-    {
-      type: 'input',
-      message: 'Enter your email:',
-      name: 'email',
   },
   {
-    type: 'input',
-    message: 'Where is this application deployed at?',
-    name: 'deploy',
-},
-  ])
+    type: "input",
+    message: "Please enter your github user name",
+    name: "github",
+  },
+  {
+    type: "input",
+    message: "Please enter your email",
+    name: "email",
+  },
+  
+];
 
+// TODO: Create a function to write README file
+// function writeToFile(fileName, data) {
+//   fs.writeFile("readme2.md", `${data}`, (err) =>
+//   err ? console.error(err) : console.log("Thanks! Your Professional Readme is generated"))
+// }
 
-// Generate a readme file basewd on user's input with user's github as name and resolve
+function writeToFile(fileName, data) {
+  // console.log(data)
+  fs.writeFile(fileName, generateMarkdown(data), (err) =>
+  err ? console.error(err) : console.log("Thanks! Your Professional Readme is generated"))
+}
 
-  .then((data) => {
-    fs.writeFile(`${data.github}.md`, generateMarkdown(data), (err) =>
-        err ? console.error(err) : console.log("Thanks! Your Professional Readme is generated"))
-})
+// TODO: Create a function to initialize app
+function init() {
+  inquirer
+  .prompt(questions)
+  .then((response) => {
+    const fileName = "README2.md";
+    writeToFile(fileName, response);
+    }
+  );
+}
+
+// Function call to initialize app
+init();
