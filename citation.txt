@@ -1,0 +1,7 @@
+## Citation
+  works cited: https://gist.github.com/kofiav/c1059e1075b67582e86b07aa9759e20d<br>
+  https://github.com/connietran-dev/readme-generator
+
+  license badges: https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
+  <br>No code was used in this project as naming and logic changed, but these are the 2 sites that got me started.
+  <br> MAKE SURE TO TAKE THIS OUT BEFORE PUSHING REPO`

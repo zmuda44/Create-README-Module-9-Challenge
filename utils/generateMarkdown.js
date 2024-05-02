@@ -1,11 +1,4 @@
-//gb added code remove
-// const fs = require('fs')
-// const index = require('')
-
-
-
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+//Create license badge for any license that has a badge. If license not listed, return an empty string
 function renderLicenseBadge(license) {
   switch (license) {
     case "Apache 2.0":
@@ -24,10 +17,10 @@ function renderLicenseBadge(license) {
       licenseBadge = '[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)'
       break;
     case "Boost Software License 1.0":
-      licenseBadge = ''
+      licenseBadge = '[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)'
       break;
     case "Creative Commons Zero":
-      licenseBadge = ''
+      licenseBadge = '[![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)'
       break;
     case "Eclipse Public License 2.0":
       licenseBadge = ''
@@ -36,43 +29,25 @@ function renderLicenseBadge(license) {
       licenseBadge = ''
       break;
     case "GNU General Public License v2.0":
-      licenseBadge = ''
+      licenseBadge = '[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)'
       break;
     case "GNU General Public License v2.1":
       licenseBadge = ''
       break;
     case "Mozilla Public License 2.0":
-      licenseBadge = ''
+      licenseBadge = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)'
       break;
     case "The Unlicensed":
-      licenseBadge = ''
+      licenseBadge = '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)'
       break;
     default: 
       licenseBagde = ''
     }
 
   return licenseBadge
-
-// switch [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-// [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-// [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-// [![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)
-
-// [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-
-// [![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)
-
-// [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
-
-// [Badge License]: https://img.shields.io/badge/Boost-1.0-628c95?style=for-the-badge&labelColor=7cb0bc
-
-
-
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+//Create license badge for any license that has a badge. If license not listed, return an empty string
 function renderLicenseLink(license) {
   switch (license) {
     case "Apache 2.0":
@@ -80,50 +55,111 @@ function renderLicenseLink(license) {
       break;
     case "GNU General Public License v3.0":
       licenseLink = 'https://www.gnu.org/licenses/gpl-3.0'
-      break
+      break;
     case "MIT License":
       licenseLink = 'https://opensource.org/licenses/MIT'
+      break;
+    case "BSD 2":
+      licenseLink = 'https://opensource.org/licenses/BSD-2-Clause'
+      break;
+    case "BSD 3":
+      licenseLink = 'https://opensource.org/licenses/BSD-3-Clause'
+      break;
+    case "Boost Software License 1.0":
+      licenseLink = '(https://www.boost.org/LICENSE_1_0.txt'
+      break;
+    case "Creative Commons Zero":
+      licenseLink = 'http://creativecommons.org/publicdomain/zero/1.0/'
+      break;
+    case "Eclipse Public License 2.0":
+      licenseLink = ''
+      break;
+    case "GNU Aferro General Public License v3.0":
+      licenseLink = ''
+      break;    
+    case "GNU General Public License v2.0":
+      licenseLink = 'https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html'
+      break;
+    case "GNU General Public License v2.1":
+      licenseLink = ''
+      break;
+    case "Mozilla Public License 2.0":
+      licenseLink = 'https://opensource.org/licenses/MIT'
+      break;
+    case "The Unlicensed":
+      licenseLink = 'https://opensource.org/licenses/MIT'
+      break;    
     default: 
       licenseLink = ''
     }
 
-    return licenseLink
- 
+    return licenseLink 
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+//Create License Section in README using the functions above. If no license, return an empty string
 function renderLicenseSection(license) {
-  licenseBagde = renderLicenseBadge(license)
+  licenseBadge = renderLicenseBadge(license)
   licenseLink = renderLicenseLink(license)
-  console.log(licenseLink)  
   
-  return `## License: ${licenseBadge} [${license}](${licenseLink})`
+  
+  if(license == "") {
+    return ""
+  }
+    return `## License: ${licenseBadge} [${license}](${licenseLink})`
 }
 
-// TODO: Create a function to generate markdown for README
+//Generate README
 function generateMarkdown(data) {
-  // return `# ${data}`;
-  // data = JSON.stringify(data)
-  // writeToFile(fileName, data.title)
-  
+   
   const title = `# ${data.title}`
   const description =  `## Description: 
   ${data.description}`
+  
   const license =  renderLicenseSection(data.license)
-  const installation = `## Installation: 
+  
+  let installation;
+  if(data.installation == "") {
+      installation = "";
+  }
+  else {
+      installation = `## Installation: 
   ${data.installation}`
-  const usage = `## Usage: 
+  }
+  
+  let usage
+  if(data.usage == "") {
+    usage = ""
+  }
+  else {
+    usage = `## Usage: 
   ${data.usage}`
-  const contribution = `## Contributions: 
-  ${data.constribution}`
-  const test = `## Testing: 
-  ${data.test}`  
+  }
+
+  let contribution 
+  if(data.contribution == "") {
+    contribution = ""
+  }  
+  else {
+    contribution = `## Contributions: 
+  ${data.contribution}`
+  }
+
+  let test
+  if(data.test == "") {
+    test = ""; 
+  }
+  else {
+    test = `## Testing: 
+  ${data.test}` 
+  } 
+  
   const questions = `## Questions: 
-  Github: [github.com/${data.github}](https://github.com/${data.github}) Email: [${data.email}](mailto: ${data.email})`
+  Github: [github.com/${data.github}](https://github.com/${data.github}) Email: ${data.email}`
   
   return `${title}
+
   ${license}
+
   ## Table of Contents
   * [Description](#description)
   * [Installation Instructions](#installation)
@@ -131,26 +167,18 @@ function generateMarkdown(data) {
   * [Contribution Information](#contributions)
   * [Test Information](#testing)
   * [Questions](#questions)
+  
   ${description}
+
   ${installation}
+
   ${usage}
+
   ${contribution}
+
   ${test}  
-  ${questions}
-  works cited: https://gist.github.com/kofiav/c1059e1075b67582e86b07aa9759e20d`
 
-
-
-
-
-  // function writeToFile(data) {
-//   fs.writeFile("readme2.md", `${title}
-// ${description}
-// ${license}`, (err) =>
-//   err ? console.error(err) : console.log("Thanks! Your Professional Readme is generated"))
-
-// }
-
+  ${questions}`
 }
 
 module.exports = generateMarkdown;
