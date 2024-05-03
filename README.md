@@ -1,6 +1,6 @@
 # Generate README app
 
-  ## License: [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [Apache 2.0](https://opensource.org/licenses/Apache-2.0)
+  ## License: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [MIT License](https://opensource.org/licenses/MIT)
 
   ## Table of Contents
   * [Description](#description)
