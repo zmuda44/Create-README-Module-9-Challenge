@@ -1,4 +1,4 @@
-# Generate README
+# Generate README app
 
   ## License: [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [Apache 2.0](https://opensource.org/licenses/Apache-2.0)
 
@@ -17,11 +17,13 @@
   First, clone this repository to your computer using 'git clone git@github.com:zmuda44/Module-9-Challenge.git' or 'git clone https://github.com/zmuda44/Module-9-Challenge.git'. cd into the folder containing the index.js. Run 'npm init' from the command line to create your package.json. You will need inquirer to run this app. To install inquirer run 'npm i inquirer@8.2.4' to install the modules and dependencies.
 
   ## Usage: 
-  First, clone this repository to your computer using 'git clone git@github.com:zmuda44/Module-9-Challenge.git' or 'git clone https://github.com/zmuda44/Module-9-Challenge.git'. cd into the folder containing the index.js. Run 'npm init' from the command line to create your package.json. You will need inquirer to run this app. To install inquirer run 'npm i inquirer@8.2.4' to install the modules and dependencies.
+  To use app, run 'node index.js' from the command line in the folder containing your index.js. You will be prompted for a series of questions. The questions about the title, description and license of your README are mandatory as well as your github user and email address, so please answer those questions. All other questions are optional and will not populate in the README. Once all questions are answered, a customized README will be generated to use as you see fit.
 
-  
+  ## Contributions: 
+  Contributions to this app are welcome. Simply fork the repository to your github account by pressing the fork button above.  This will create a repository on your own github which you can clone and push to like any other repository. If you wish for your changes or additions to be part of this app, click on the 'Pull requests' button towards the top of the forked repository in your github account. Follow the prompts for a pull request and if approved, your code will be accepted into this app's repository.
 
-    
+  ## Testing: 
+  You can test this code or any modified code after cloning or forking using JEST. To install JEST run 'npm i jest' from the command line while in the folder containing index.js. Be sure to added test to your "scripts" in your package.json folder. Add the following code into your "scripts" key so it should read as follows: "scripts": { "test": "jest"}. After this is complete create a test folder and a file inside entitled index.test.js. To test the generateMarkdown.js follow the same instructions but create the test folder in the 'utils' folder of his repository.  
 
   ## Questions: 
-  Github: [github.com/](https://github.com/) Email: 
+  Github: [github.com/zmuda44](https://github.com/zmuda44) Email: gregbailey617@gmail.com
