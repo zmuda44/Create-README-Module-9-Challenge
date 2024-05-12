@@ -13,8 +13,13 @@
   ## Description: 
   This app will create a personalized README for any project. Simply install the app and run 'node index.js' from the command line in the folder where the index.js is stored. You will be prompted through a series of questions to respond to. When finished with all of the questions, the app will generate a custom README broken down by section with the information that you have entered.
 
+  ## Tutorial Video:
+  https://www.youtube.com/watch?v=7F7qgaZnkOw
+
   ## Installation: 
   First, clone this repository to your computer using 'git clone git@github.com:zmuda44/Module-9-Challenge.git' or 'git clone https://github.com/zmuda44/Module-9-Challenge.git'. cd into the folder containing the index.js. Run 'npm init' from the command line to create your package.json. You will need inquirer to run this app. To install inquirer run 'npm i inquirer@8.2.4' to install the modules and dependencies.
+  ![alt text](<images/git clone.png>)
+  ![alt text](images/inquirer.png)
 
   ## Usage: 
   To use app, run 'node index.js' from the command line in the folder containing your index.js. You will be prompted for a series of questions. The questions about the title, description and license of your README are mandatory as well as your github user and email address, so please answer those questions. All other questions are optional and will not populate in the README. Once all questions are answered, a customized README will be generated to use as you see fit.
