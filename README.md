@@ -4,6 +4,7 @@
 
   ## Table of Contents
   * [Description](#description)
+  * [Tutorial Video](#tutorial)
   * [Installation Instructions](#installation)
   * [Usage Instructions](#usage)
   * [Contribution Information](#contributions)
@@ -13,7 +14,7 @@
   ## Description: 
   This app will create a personalized README for any project. Simply install the app and run 'node index.js' from the command line in the folder where the index.js is stored. You will be prompted through a series of questions to respond to. When finished with all of the questions, the app will generate a custom README broken down by section with the information that you have entered.
 
-  ## Tutorial Video:
+  ## Tutorial:
   https://www.youtube.com/watch?v=7F7qgaZnkOw
 
   ## Installation: 
